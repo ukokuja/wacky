@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e73f79a-e498-487c-81a6-294bb263c8f6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/search.js" afterPath="$PROJECT_DIR$/app/routes/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/assets/temp-ember.js" afterPath="$PROJECT_DIR$/dist/assets/temp-ember.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/assets/temp-ember.map" afterPath="$PROJECT_DIR$/dist/assets/temp-ember.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/wacky.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/wacky.jpg" />
     </list>
     <ignored path="youtube.iws" />
     <ignored path=".idea/workspace.xml" />

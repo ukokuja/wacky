@@ -377,7 +377,7 @@ define("temp-ember/controllers/search",
         fav: function(vid){
           var favs = localStorage.getItem("favs");
           favs = JSON.parse(favs);
-          if(!favs || favs.length == 0){
+          if(!favs || favs.length === 0){
             favs = [];
           }
           favs.push(vid);
@@ -1137,36 +1137,42 @@ define("temp-ember/templates/search",
     function program1(depth0,data) {
       
       var buffer = '', stack1, helper, options;
-      data.buffer.push("\n              <div class=\"row\">\n                  <div class=\"col-lg-12\">\n                      <button type=\"button\" ");
+      data.buffer.push("\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <button type=\"button\" ");
       data.buffer.push(escapeExpression(helpers.action.call(depth0, "fav", "video", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
       data.buffer.push(" class=\"btn btn-link\"><span class=\"ion-star gold-star\" aria-hidden=\"true\"></span>Add ");
       data.buffer.push(escapeExpression((helper = helpers.trimShort || (depth0 && depth0.trimShort),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "video.snippet.title", options) : helperMissing.call(depth0, "trimShort", "video.snippet.title", options))));
-      data.buffer.push("</button>\n                    ");
+      data.buffer.push("</button>\n              ");
       stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
         'replace': (true),
         'class': ("thumbnail")
       },hashTypes:{'replace': "BOOLEAN",'class': "STRING"},hashContexts:{'replace': depth0,'class': depth0},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "search", "video.id.videoId", options) : helperMissing.call(depth0, "link-to", "search", "video.id.videoId", options));
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-      data.buffer.push("\n                  </div>\n              </div>\n          ");
+      data.buffer.push("\n            </div>\n        </div>\n    ");
       return buffer;
       }
     function program2(depth0,data) {
       
       var buffer = '', stack1, helper, options;
-      data.buffer.push("\n                        <img ");
+      data.buffer.push("\n                  <img ");
       data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
         'src': ("video.snippet.thumbnails.medium.url")
       },hashTypes:{'src': "ID"},hashContexts:{'src': depth0},contexts:[],types:[],data:data})));
-      data.buffer.push("/>\n                        <div class=\"caption\">\n                            <h4 >");
+      data.buffer.push("/>\n                  <div class=\"caption\">\n                      <h4 >");
       stack1 = helpers._triageMustache.call(depth0, "video.snippet.title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-      data.buffer.push("</h4>\n                            <p>");
+      data.buffer.push("</h4>\n                      <p>");
       data.buffer.push(escapeExpression((helper = helpers.trimString || (depth0 && depth0.trimString),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "video.snippet.description", options) : helperMissing.call(depth0, "trimString", "video.snippet.description", options))));
-      data.buffer.push("</p>\n                        </div>\n                    ");
+      data.buffer.push("</p>\n                  </div>\n              ");
       return buffer;
       }
 
     function program4(depth0,data) {
+      
+      
+      data.buffer.push("\n      <hr/>\n  ");
+      }
+
+    function program6(depth0,data) {
       
       var buffer = '', helper, options;
       data.buffer.push("\n        <div class=\"well\">\n            <div class=\"embed-responsive embed-responsive-4by3\">\n              ");
@@ -1175,23 +1181,23 @@ define("temp-ember/templates/search",
       return buffer;
       }
 
-    function program6(depth0,data) {
+    function program8(depth0,data) {
       
       var buffer = '', stack1;
       data.buffer.push("\n        ");
-      stack1 = helpers.each.call(depth0, "fav", "in", "faves", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],data:data});
+      stack1 = helpers.each.call(depth0, "fav", "in", "faves", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(9, program9, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n    ");
       return buffer;
       }
-    function program7(depth0,data) {
+    function program9(depth0,data) {
       
       var buffer = '', stack1, helper, options;
       data.buffer.push("\n            <div class=\"media\">\n                <div class=\"media-left\">\n                  ");
       stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
         'replace': (true),
         'class': ("thumbnail thumb-fav")
-      },hashTypes:{'replace': "BOOLEAN",'class': "STRING"},hashContexts:{'replace': depth0,'class': depth0},inverse:self.noop,fn:self.program(8, program8, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "search", "fav.id.videoId", options) : helperMissing.call(depth0, "link-to", "search", "fav.id.videoId", options));
+      },hashTypes:{'replace': "BOOLEAN",'class': "STRING"},hashContexts:{'replace': depth0,'class': depth0},inverse:self.noop,fn:self.program(10, program10, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "search", "fav.id.videoId", options) : helperMissing.call(depth0, "link-to", "search", "fav.id.videoId", options));
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n                    </a>\n                </div>\n                <div class=\"media-body\">\n                    <h5 class=\"media-heading\">");
       stack1 = helpers._triageMustache.call(depth0, "fav.snippet.title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
@@ -1201,14 +1207,14 @@ define("temp-ember/templates/search",
         'replace': (true),
         'type': ("button"),
         'class': ("btn btn-primary")
-      },hashTypes:{'replace': "BOOLEAN",'type': "STRING",'class': "STRING"},hashContexts:{'replace': depth0,'type': depth0,'class': depth0},inverse:self.noop,fn:self.program(10, program10, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "search", "fav.id.videoId", options) : helperMissing.call(depth0, "link-to", "search", "fav.id.videoId", options));
+      },hashTypes:{'replace': "BOOLEAN",'type': "STRING",'class': "STRING"},hashContexts:{'replace': depth0,'type': depth0,'class': depth0},inverse:self.noop,fn:self.program(12, program12, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "search", "fav.id.videoId", options) : helperMissing.call(depth0, "link-to", "search", "fav.id.videoId", options));
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n                        <button type=\"button\" class=\"btn btn-default\" ");
       data.buffer.push(escapeExpression(helpers.action.call(depth0, "unFav", "_view.contentIndex", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
       data.buffer.push(">Delete</button>\n                    </p>\n                </div>\n            </div>\n        ");
       return buffer;
       }
-    function program8(depth0,data) {
+    function program10(depth0,data) {
       
       var buffer = '';
       data.buffer.push("\n                      <img class=\"media-object\"  ");
@@ -1219,13 +1225,13 @@ define("temp-ember/templates/search",
       return buffer;
       }
 
-    function program10(depth0,data) {
+    function program12(depth0,data) {
       
       
       data.buffer.push("\n                          Play\n                      ");
       }
 
-      data.buffer.push("<!-- Note: this is vanilla HTML. TODO: Emberify!-->\n<h2 class=\"left-padding gray\">Wacky Media Player</h2>\n<br>\n<div class=\"col-lg-4\">\n\n        <label for=\"email\" class=\"sr-only\">Email</label>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <div class=\"input-group\">\n                    ");
+      data.buffer.push("<!-- Note: this is vanilla HTML. TODO: Emberify!-->\n<h2 class=\"left-padding gray\">Wacky Media Player</h2>\n<br>\n<div class=\"col-lg-4\">\n\n  <label for=\"email\" class=\"sr-only\">Email</label>\n  <div class=\"row\">\n      <div class=\"col-lg-12\">\n          <div class=\"input-group\">\n              ");
       data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
         'type': ("text"),
         'value': ("search"),
@@ -1233,18 +1239,21 @@ define("temp-ember/templates/search",
         'class': ("form-control input-lg"),
         'placeholder': ("Search an artist or song")
       },hashTypes:{'type': "STRING",'value': "ID",'insert-newline': "STRING",'class': "STRING",'placeholder': "STRING"},hashContexts:{'type': depth0,'value': depth0,'insert-newline': depth0,'class': depth0,'placeholder': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-      data.buffer.push("\n                    <span class=\"input-group-btn\">\n                      <button type=\"button\" class=\"btn btn-primary btn-lg\" ");
+      data.buffer.push("\n              <span class=\"input-group-btn\">\n                <button type=\"button\" class=\"btn btn-primary btn-lg\" ");
       data.buffer.push(escapeExpression(helpers.action.call(depth0, "searchVideos", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
-      data.buffer.push(">Search</button>\n                    </span>\n                </div>\n            </div>\n        </div>\n        <br/>\n          ");
+      data.buffer.push(">Search</button>\n              </span>\n          </div>\n      </div>\n  </div>\n  <br/>\n    ");
       stack1 = helpers.each.call(depth0, "video", "in", "model.items", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-      data.buffer.push("\n\n        <hr/>\n</div>\n\n<div class=\"col-lg-7\">\n    ");
-      stack1 = helpers['if'].call(depth0, "model.play", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0],types:["ID"],data:data});
+      data.buffer.push("\n  ");
+      stack1 = helpers['if'].call(depth0, "model.items", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0],types:["ID"],data:data});
+      if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+      data.buffer.push("\n\n</div>\n\n<div class=\"col-lg-7\">\n    ");
+      stack1 = helpers['if'].call(depth0, "model.play", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n  <div class=\"playlist\">\n    ");
       stack1 = (helper = helpers['liquid-spacer'] || (depth0 && depth0['liquid-spacer']),options={hash:{
         'growDuration': (250)
-      },hashTypes:{'growDuration': "INTEGER"},hashContexts:{'growDuration': depth0},inverse:self.noop,fn:self.program(6, program6, data),contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "liquid-spacer", options));
+      },hashTypes:{'growDuration': "INTEGER"},hashContexts:{'growDuration': depth0},inverse:self.noop,fn:self.program(8, program8, data),contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "liquid-spacer", options));
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n  </div>\n\n</div>\n");
       return buffer;
@@ -1266,7 +1275,7 @@ define("temp-ember/tests/controllers/search.jshint",
     "use strict";
     module('JSHint - controllers');
     test('controllers/search.js should pass jshint', function() { 
-      ok(false, 'controllers/search.js should pass jshint.\ncontrollers/search.js: line 7, col 33, Expected \'===\' and instead saw \'==\'.\n\n1 error'); 
+      ok(true, 'controllers/search.js should pass jshint.'); 
     });
   });
 define("temp-ember/tests/helpers/resolver", 

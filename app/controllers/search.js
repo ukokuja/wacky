@@ -4,7 +4,7 @@ export default Ember.ObjectController.extend({
     fav: function(vid){
       var favs = localStorage.getItem("favs");
       favs = JSON.parse(favs);
-      if(!favs || favs.length == 0){
+      if(!favs || favs.length === 0){
         favs = [];
       }
       favs.push(vid);

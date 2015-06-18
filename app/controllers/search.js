@@ -4,23 +4,21 @@ export default Ember.ObjectController.extend({
     fav: function(vid){
       var favs = localStorage.getItem("favs");
       favs = JSON.parse(favs);
-      if(!favs ||  favs.length <= 0){
+      if(!favs || favs.length == 0){
         favs = [];
       }
       favs.push(vid);
-      favs = JSON.stringify(favs);
-      localStorage.setItem("favs", favs);
-      favs = JSON.parse(favs);
       this.set('faves', favs);
+      localStorage.setItem("favs", JSON.stringify(favs));
+
     },
     unFav: function(ind){
       var favs = localStorage.getItem("favs");
       favs = JSON.parse(favs);
       favs.splice(ind,1);
-      favs = JSON.stringify(favs);
-      localStorage.setItem("favs", favs);
-      favs = JSON.parse(favs);
       this.set('faves', favs);
+      localStorage.setItem("favs", JSON.stringify(favs));
+
     },
     searchVideos: function () {
       var query = this.get('search');

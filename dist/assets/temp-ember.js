@@ -377,23 +377,21 @@ define("temp-ember/controllers/search",
         fav: function(vid){
           var favs = localStorage.getItem("favs");
           favs = JSON.parse(favs);
-          if(!favs ||  favs.length <= 0){
+          if(!favs || favs.length == 0){
             favs = [];
           }
           favs.push(vid);
-          favs = JSON.stringify(favs);
-          localStorage.setItem("favs", favs);
-          favs = JSON.parse(favs);
           this.set('faves', favs);
+          localStorage.setItem("favs", JSON.stringify(favs));
+
         },
         unFav: function(ind){
           var favs = localStorage.getItem("favs");
           favs = JSON.parse(favs);
           favs.splice(ind,1);
-          favs = JSON.stringify(favs);
-          localStorage.setItem("favs", favs);
-          favs = JSON.parse(favs);
           this.set('faves', favs);
+          localStorage.setItem("favs", JSON.stringify(favs));
+
         },
         searchVideos: function () {
           var query = this.get('search');
@@ -857,8 +855,8 @@ define("temp-ember/routes/index",
     __exports__["default"] = Ember.Route.extend({
       model: function() {
         var last = {};
-        last["search"] = localStorage.getItem("lastSearch") != null ? localStorage.getItem("lastSearch")  : "test";
-        last["play"] = localStorage.getItem("lastVideo") != null ? localStorage.getItem("lastVideo")  : "y7ECYaMAUKE";
+        last["search"] = localStorage.getItem("lastSearch") != null ? localStorage.getItem("lastSearch")  : "";
+        last["play"] = localStorage.getItem("lastVideo") != null ? localStorage.getItem("lastVideo")  : "t_FtdkPrpXE";
         return last;
       }
 
@@ -905,7 +903,7 @@ define("temp-ember/templates/application",
 
 
       data.buffer.push(escapeExpression((helper = helpers.render || (depth0 && depth0.render),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "header-nav", options) : helperMissing.call(depth0, "render", "header-nav", options))));
-      data.buffer.push("\n\n<div class=\"container\">\n  <h2>Totango <small>israel!</small></h2>\n  ");
+      data.buffer.push("\n\n<div class=\"container\">\n  ");
       stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n</div>\n");
@@ -1053,13 +1051,19 @@ define("temp-ember/templates/header-nav",
     __exports__["default"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
     this.compilerInfo = [4,'>= 1.0.0'];
     helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-      var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+      var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing;
 
+    function program1(depth0,data) {
+      
+      
+      data.buffer.push("\n        <img class=\"logo-brand\" src=\"http://2myyi21mszez474t4ur4n573.wpengine.netdna-cdn.com/wp-content/themes/totango/assets/img/global/totango_logo.png\">\n      ");
+      }
 
-      data.buffer.push("<nav class=\"navbar navbar-default\" role=\"navigation\">\n  <div class=\"container-fluid\">\n\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\"\n              data-target=\"#header_nav_collapse\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      ");
-      data.buffer.push(escapeExpression((helper = helpers.linkTo || (depth0 && depth0.linkTo),options={hash:{
+      data.buffer.push("<nav class=\"navbar navbar-default\" role=\"navigation\">\n  <div class=\"container-fluid\">\n\n    <div class=\"navbar-header\">\n      </button>\n      ");
+      stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
         'class': ("navbar-brand")
-      },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[depth0,depth0],types:["STRING","STRING"],data:data},helper ? helper.call(depth0, "Totango", "index", options) : helperMissing.call(depth0, "linkTo", "Totango", "index", options))));
+      },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+      if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n    </div>\n\n\n  </div>\n</nav>\n");
       return buffer;
       
@@ -1078,13 +1082,14 @@ define("temp-ember/templates/index",
     function program1(depth0,data) {
       
       
-      data.buffer.push("\n      Enter\n");
+      data.buffer.push("\n    <img src=\"wacky.jpg\"/>\n");
       }
 
-      data.buffer.push("<h3>Welcome to the Totangotube</h3>\n\n<p>\n  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eum ea odit, nam accusantium vitae sed excepturi, porro, consequuntur quae, animi hic officiis distinctio aperiam cumque. Porro, odit fugiat dolorum.\n</p>\n");
+      data.buffer.push("<h3>Welcome to the Wacky Media Player</h3>\n\n<p>\n  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eum ea odit, nam accusantium vitae sed excepturi, porro, consequuntur quae, animi hic officiis distinctio aperiam cumque. Porro, odit fugiat dolorum.\n</p>\n");
       stack1 = (helper = helpers.linkTo || (depth0 && depth0.linkTo),options={hash:{
-        'class': ("btn btn-md btn-primary")
-      },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "search", "", options) : helperMissing.call(depth0, "linkTo", "search", "", options));
+        'replace': ("true"),
+        'class': ("thumbnail")
+      },hashTypes:{'replace': "STRING",'class': "STRING"},hashContexts:{'replace': depth0,'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "search", "", options) : helperMissing.call(depth0, "linkTo", "search", "", options));
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n\n");
       return buffer;
@@ -1142,7 +1147,7 @@ define("temp-ember/templates/search",
       var buffer = '', stack1, helper, options;
       data.buffer.push("\n              <div class=\"row\">\n                  <div class=\"col-lg-12\">\n                      <button type=\"button\" ");
       data.buffer.push(escapeExpression(helpers.action.call(depth0, "fav", "video", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
-      data.buffer.push(" class=\"btn btn-link\"><span  class=\"ion-star gold-star\" aria-hidden=\"true\"></span>Add ");
+      data.buffer.push(" class=\"btn btn-link\"><span class=\"ion-star gold-star\" aria-hidden=\"true\"></span>Add ");
       data.buffer.push(escapeExpression((helper = helpers.trimShort || (depth0 && depth0.trimShort),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "video.snippet.title", options) : helperMissing.call(depth0, "trimShort", "video.snippet.title", options))));
       data.buffer.push("</button>\n                    ");
       stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
@@ -1228,7 +1233,7 @@ define("temp-ember/templates/search",
       data.buffer.push("\n                          Play\n                      ");
       }
 
-      data.buffer.push("<!-- Note: this is vanilla HTML. TODO: Emberify!-->\n<h3>Wacky Media Player</h3>\n<div class=\"col-lg-4\">\n    <form class=\"form\" action=\"#\">\n\n        <label for=\"email\" class=\"sr-only\">Email</label>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <div class=\"input-group\">\n                    ");
+      data.buffer.push("<!-- Note: this is vanilla HTML. TODO: Emberify!-->\n<h2 class=\"left-padding gray\">Wacky Media Player</h2>\n<br>\n<div class=\"col-lg-4\">\n\n        <label for=\"email\" class=\"sr-only\">Email</label>\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <div class=\"input-group\">\n                    ");
       data.buffer.push(escapeExpression((helper = helpers.input || (depth0 && depth0.input),options={hash:{
         'type': ("text"),
         'value': ("search"),
@@ -1241,7 +1246,7 @@ define("temp-ember/templates/search",
       data.buffer.push(">Search</button>\n                    </span>\n                </div>\n            </div>\n        </div>\n        <br/>\n          ");
       stack1 = helpers.each.call(depth0, "video", "in", "model.items", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-      data.buffer.push("\n\n        <hr/>\n    </form>\n</div>\n\n<div class=\"col-lg-7\">\n    ");
+      data.buffer.push("\n\n        <hr/>\n</div>\n\n<div class=\"col-lg-7\">\n    ");
       stack1 = helpers['if'].call(depth0, "model.play", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0],types:["ID"],data:data});
       if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
       data.buffer.push("\n  <div class=\"playlist\">\n    ");
@@ -1269,7 +1274,7 @@ define("temp-ember/tests/controllers/search.jshint",
     "use strict";
     module('JSHint - controllers');
     test('controllers/search.js should pass jshint', function() { 
-      ok(true, 'controllers/search.js should pass jshint.'); 
+      ok(false, 'controllers/search.js should pass jshint.\ncontrollers/search.js: line 7, col 33, Expected \'===\' and instead saw \'==\'.\n\n1 error'); 
     });
   });
 define("temp-ember/tests/helpers/resolver", 

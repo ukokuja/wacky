@@ -5268,4 +5268,15 @@ button.close {
 
 .playlist {
   height: 1200px;
-  overflow: overlay; }
+  overflow: overlay;
+  overflow-x: hidden; }
+
+.logo-brand {
+  width: 100%;
+  max-width: 160px; }
+
+.left-padding {
+  padding-left: 15px; }
+
+.gray {
+  color: #BBB; }
